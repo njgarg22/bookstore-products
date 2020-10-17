@@ -10,6 +10,14 @@
 
 1. The initialization of the CAP Java runtime is done by Spring automatically, based on the dependencies defined in the `pom.xml`.
 
+1. [CDS Query Notation](https://cap.cloud.sap/docs/cds/cqn) (CQN) is the common language in CAP to run queries against services. It can be used to talk to the services defined by your model, but also remote services, such as the database.
+
+1. The event handler uses the following APIs, which are available for service providers in CAP Java:
+    * [Event handler classes](https://cap.cloud.sap/docs/java/provisioning-api) have to implement the _marker interface_ `EventHandler` and register themselves as Spring Beans (`@Component`). The marker interface is important, because it enables the CAP Java runtime to identify these classes among all Spring Beans.
+    * `Event handler methods` are registered with `@On`, `@Before`, or `@After` annotations. Every event, such as an entity creation, runs through these [three phases](https://cap.cloud.sap/docs/java/provisioning-api#phases). Each phase has a slightly different semantic.
+    * The annotation `@ServiceName` specifies the default service name all event handler methods apply to. Here this is `AdminService`, as this was also the name when defining the service in the CDS model.
+    * Event handler methods get an event-specific event context parameter, which provides access to the input parameters of the event and the ability to set the result. For example, `CreateEventContext` context parameter is specific to the extended `CREATE` event.
+
 ## Folder structure
 
 1. The `db` folder stores database-related artifacts.
