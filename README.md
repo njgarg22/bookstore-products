@@ -78,12 +78,14 @@ The `localized` keyword can be used to mark elements, which require translation.
 ## Folder structure
 
 1. The `db` folder stores database-related artifacts.
-When you define a service, you define its own entity within the service itself. 
+When you define a service, it's possible to define its own entity within the service itself. 
 But when modeling with CDS the best practice is to separate services from the domain model.
 Therefore, you will define the domain model in the db folder of your CAP application.
 1. The `db/schema.cds` defines the complete domain model that is used by the products service
 1. The `srv` folder stores your Java application.
-1. The `srv/old-admin-service.cds` defines a simple service, which also defines its own entity. In more complex applications, services usually expose projections on entities defined in the data model.
+1. The `srv/old-admin-service.cds` defines a simple service, which directly defines the entity `Products`. In more complex applications, services usually expose projections on entities defined in the domain model.
+1. The `srv/admin-service.cds` defines a service, which exposes projections of the `Products` and `Categories` entities defined in the domain model.
+These projections can be used to include (and also exclude) only certain elements of an entity or to rename the entity’s elements.
 1. The `srv/src/main/resources/edmx` is the default path, where CAP Java runtime looks for the model definitions.
 1. The `srv/src/main/java/com/sap/cap/productsservice/Application.java` is the startup class for the Spring Boot container and contains a `main` method.
 1. The `srv/src/main/java/com/sap/cap/productsservice/handlers/OldAdminService.java` is the Java class for custom event handler.
@@ -108,3 +110,11 @@ Therefore, you will define the domain model in the db folder of your CAP applica
        "descr": "You are doing an awesome job!"
    }
    ```
+
+## Deploy the domain model
+
+1. Let’s deploy the domain model to a database. Now, you will use `SQLite`, a light-weight file-based database, which fits the needs for local development perfectly.
+
+1. First, install `SQLite` to the project. Run `npm install --save-dev sqlite3`.
+
+1. To initialize the database with the defined domain model, execute the following command in the terminal: `cds deploy --to sqlite`.
