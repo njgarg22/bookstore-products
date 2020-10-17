@@ -14,6 +14,7 @@
 
 1. The `db` folder stores database-related artifacts.
 1. The `srv` folder stores your Java application.
+1. The `srv/admin-service.cds` defines a simple service, which also defines its own entity. In more complex applications, services usually expose projections on entities defined in the data model.
 1. The `srv/src/main/resources/edmx` is the default path, where CAP Java runtime looks for the model definitions.
 1. The `srv/src/main/java/com/sap/cap/productsservice/Application.java` is the startup class for the Spring Boot container and contains a `main` method.
 
