@@ -25,6 +25,7 @@
 1. The `srv/admin-service.cds` defines a simple service, which also defines its own entity. In more complex applications, services usually expose projections on entities defined in the data model.
 1. The `srv/src/main/resources/edmx` is the default path, where CAP Java runtime looks for the model definitions.
 1. The `srv/src/main/java/com/sap/cap/productsservice/Application.java` is the startup class for the Spring Boot container and contains a `main` method.
+1. The `srv/src/main/java/com/sap/cap/productsservice/handlers/AdminService.java` is the Java class for custom event handler.
 
 ## Build and Run the application
 
