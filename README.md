@@ -110,11 +110,3 @@ These projections can be used to include (and also exclude) only certain element
        "descr": "You are doing an awesome job!"
    }
    ```
-
-## Deploy the domain model
-
-1. Let’s deploy the domain model to a database. Now, you will use `SQLite`, a light-weight file-based database, which fits the needs for local development perfectly.
-
-1. First, install `SQLite` to the project. Run `npm install --save-dev sqlite3`.
-
-1. To initialize the database with the defined domain model, execute the following command in the terminal: `cds deploy --to sqlite`.
