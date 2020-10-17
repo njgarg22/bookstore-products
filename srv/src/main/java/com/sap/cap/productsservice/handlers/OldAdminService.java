@@ -14,8 +14,8 @@
 
 // Java class for custom event handler
  @Component
- @ServiceName("AdminService")
- public class AdminService implements EventHandler {
+ @ServiceName("OldAdminService")
+ public class OldAdminService implements EventHandler {
 
      private Map<Object, Map<String, Object>> products = new HashMap<>();
 
@@ -25,13 +25,13 @@
      The type of the context variable is specific to this extended CREATE event.
      The onCreate method returns void, as the result is set by running: context.setResult().
      */
-     @On(event = CdsService.EVENT_CREATE, entity = "AdminService.Products")
+     @On(event = CdsService.EVENT_CREATE, entity = "OldAdminService.Products")
      public void onCreate(CdsCreateEventContext context) {
          context.getCqn().entries().forEach(e -> products.put(e.get("ID"), e));
          context.setResult(context.getCqn().entries());
      }
 
-     @On(event = CdsService.EVENT_READ, entity = "AdminService.Products")
+     @On(event = CdsService.EVENT_READ, entity = "OldAdminService.Products")
      public void onRead(CdsReadEventContext context) {
          context.setResult(products.values());
      }

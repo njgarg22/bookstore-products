@@ -1,4 +1,4 @@
-service AdminService {
+service OldAdminService {
     entity Products {
         key ID : Integer;
         title  : String(111);
