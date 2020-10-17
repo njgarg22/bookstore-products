@@ -24,6 +24,7 @@
      The event we’re extending is the CREATE event.
      The type of the context variable is specific to this extended CREATE event.
      The onCreate method returns void, as the result is set by running: context.setResult().
+     @On annotation replaces the default handling of an event that is provided by the CAP Java runtime.
      */
      @On(event = CdsService.EVENT_CREATE, entity = "OldAdminService.Products")
      public void onCreate(CdsCreateEventContext context) {
