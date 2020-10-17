@@ -42,3 +42,13 @@ Reusable models can be published as NPM modules and imported through dependencie
 
     /> updated ./package.json
     ```
+
+## Extend the Bookstore with Custom Code
+
+1. The `@On` annotation replaces the default handling of an event that is provided by the CAP Java runtime.
+
+1. As we want to augment the default handling now, we’ll use the `@Before` and `@After` annotations. 
+
+1. Event handlers registered using the `@Before` annotation are meant to perform validation of the input entity data. This makes it possible to validate the available stock of a particular book before creating an order. 
+
+1. In contrast event handlers registered using the `@After` annotation can post-process returned entities. This is useful for calculating the total and netAmount elements after reading orders or their items from the database.
