@@ -31,3 +31,19 @@
 
 1. Compile model definition: `mvn clean install`. After running this command, some files are generated and added to the `srv/src/main/resources/edmx` folder.
 1. Start the application: `mvn clean spring-boot:run`. Inspect oData metadata at http://localhost:8080/odata/v4/AdminService/$metadata.
+
+## API's
+
+1. Get the entity `Products` of the service `AdminService`: GET http://localhost:8080/odata/v4/AdminService/Products
+
+1. This `POST` request causes an OData Insert on the entity `Products` of the service `AdminService`:
+
+   ```json
+   POST http://localhost:8080/odata/v4/AdminService/Products
+   
+   {
+       "ID": 42,
+       "title": "My Tutorial Product",
+       "descr": "You are doing an awesome job!"
+   }
+   ```
