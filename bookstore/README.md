@@ -31,14 +31,14 @@ Reusable models can be published as NPM modules and imported through dependencie
 
 1. To initialize the bookstore database with the defined domain model and sample data, run:
 
-```console
-$ cds deploy --to sqlite
+    ```console
+    $ cds deploy --to sqlite
 
- > filling sap.capire.bookstore.Authors from db/data/sap.capire.bookstore-Authors.csv 
- > filling sap.capire.bookstore.Books from db/data/sap.capire.bookstore-Books.csv 
- > filling sap.capire.products.Products_texts from db/data/sap.capire.bookstore-Books_texts.csv 
- > filling sap.capire.products.Categories from db/data/sap.capire.products-Categories.csv 
-/> successfully deployed to ./sqlite.db
+     > filling sap.capire.bookstore.Authors from db/data/sap.capire.bookstore-Authors.csv 
+     > filling sap.capire.bookstore.Books from db/data/sap.capire.bookstore-Books.csv 
+     > filling sap.capire.products.Products_texts from db/data/sap.capire.bookstore-Books_texts.csv 
+     > filling sap.capire.products.Categories from db/data/sap.capire.products-Categories.csv 
+    /> successfully deployed to ./sqlite.db
 
-/> updated ./package.json
-```
+    /> updated ./package.json
+    ```
